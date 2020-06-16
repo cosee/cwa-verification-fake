@@ -16,7 +16,7 @@ If requested with a TAN included in the valid TAN array, the fake service will r
 ```
 make run [delay-in-millis]
 ```
-Runs the verification fake on `localhost:8004` with optional `delay-in-millis.
+Runs the verification fake on `localhost:8004` with optional `delay-in-millis`.
 
 ## Environment Variables
 Available when you run the container yourself independently of the `make run` target.
