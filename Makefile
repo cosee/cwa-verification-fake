@@ -21,3 +21,14 @@ login:
 push: login
 	docker push docker.pkg.github.com/$(ACCOUNT)/$(IMAGE_NAME)/$(IMAGE_ID)
 	docker push docker.pkg.github.com/$(ACCOUNT)/$(IMAGE_NAME)/$(IMAGE_NAME):latest
+
+run: export delayMillis=$(filter-out $@,$(MAKECMDGOALS))
+run: build
+	@if [ -z $${delayMillis} ]; then \
+  		docker run --publish 8004 $(IMAGE_ID); \
+  	else \
+  	  	docker run --publish 8004 --env CWA_FAKE_DELAY_MILLIS=$${delayMillis} $(IMAGE_ID); fi
+
+# some magic to get makefile parameters working
+%:
+	@:
