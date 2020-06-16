@@ -1,3 +1,11 @@
+GH_TOKEN.txt
+
+# direnv
+.envrc
+
+#Goland
+.idea/
+
 # Logs
 logs
 *.log
